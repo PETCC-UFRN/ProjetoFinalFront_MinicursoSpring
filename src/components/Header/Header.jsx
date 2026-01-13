@@ -18,6 +18,9 @@ export function Header() {
             <Link to="/menu">Cardápio</Link>
           </li>
           <li className="nav_item">
+            <Link to="/cadastro">Cadastre</Link>
+          </li>
+          <li className="nav_item">
             <Link to="/">Login</Link>
           </li>
         </ul>
