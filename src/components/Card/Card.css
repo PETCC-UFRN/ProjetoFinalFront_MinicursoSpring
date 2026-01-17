@@ -14,3 +14,17 @@
     width: 250px;
     height: 200px;
 }
+
+.btn_delete {
+  margin-top: 8px;
+  padding: 6px 10px;
+  background-color: #e63946;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn_delete:hover {
+  background-color: #d62828;
+}
