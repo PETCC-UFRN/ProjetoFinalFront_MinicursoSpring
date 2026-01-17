@@ -38,6 +38,29 @@ export function Menu(){
     }, []
   )
 
+  async function handleDelete(id) {
+    const confirmDelete = window.confirm("Tem certeza que deseja excluir este item?")
+    if (!confirmDelete) return
+
+    try {
+      const response = await fetch("http://localhost:8080/foods/delete/" + id, {
+        method: "DELETE",
+        headers: {
+          "Authorization": "Basic " + btoa("admin:123")
+        }
+      })
+
+      if (!response.ok) {
+        throw new Error("Erro ao deletar comida")
+      }
+
+      setData(prevData => prevData.filter(food => food.id !== id))
+
+    } catch (err) {
+      alert("Você precisa estar logado para excluir uma comida")
+    }
+  }
+
   if (loading)
     return <p className="container">Carregando cardápio...</p>
 
@@ -61,6 +84,7 @@ export function Menu(){
                         price={foodData.price}
                         title={foodData.title}
                         image={foodData.image}
+                        onDelete={handleDelete}
                     />
                 )}
             </div>
