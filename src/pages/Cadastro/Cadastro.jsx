@@ -7,6 +7,8 @@ export function Cadastro() {
   const [image, setImage] = useState("")
   const [message, setMessage] = useState("")
 
+  const CREDENTIALS = btoa("admin:12345");
+
   async function handleSubmit(e) {
     e.preventDefault()
 
@@ -17,10 +19,11 @@ export function Cadastro() {
     }
 
     try {
-      const response = await fetch("http://localhost:8080/foods/post", {
+      const response = await fetch("http://localhost:8080/foods/save", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Authorization": "Basic " + CREDENTIALS
         },
         body: JSON.stringify(newFood)
       })
