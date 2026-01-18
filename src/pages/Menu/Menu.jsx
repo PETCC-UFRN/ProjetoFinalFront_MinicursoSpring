@@ -8,6 +8,7 @@ export function Menu(){
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const [editingFood, setEditingFood] = useState(null)
 
   const CREDENTIALS = btoa("admin:12345");
 
@@ -61,6 +62,32 @@ export function Menu(){
     } catch (err) {
       alert("Você precisa estar logado para excluir uma comida")
     }
+  }
+
+  async function handleUpdate(e) {
+    e.preventDefault()
+
+    try {
+      const response = await fetch("http://localhost:8080/foods/update", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Basic " + CREDENTIALS
+        },
+        body: JSON.stringify(editingFood)
+      })
+      if(!response.ok)
+        throw new Error("Erro na atualização")
+      
+      const updateFood = await response.json()
+
+      setData(prev => prev.map(f => f.id === updateFood.id ? updateFood : f))
+      setEditingFood(null)
+      alert("Item atualizado com sucesso!")
+    }
+    catch (err) {
+      alert("Erro ao atualizar. Verifique se você tem permissão.")
+    }  
   }
 
   if (loading)
