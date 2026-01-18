@@ -9,6 +9,8 @@ export function Menu(){
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
+  const CREDENTIALS = btoa("admin:12345");
+
   useEffect(() => {
 
       async function fetchFoods() {
@@ -46,7 +48,7 @@ export function Menu(){
       const response = await fetch("http://localhost:8080/foods/delete/" + id, {
         method: "DELETE",
         headers: {
-          "Authorization": "Basic " + btoa("admin:123")
+          "Authorization": "Basic " + CREDENTIALS
         }
       })
 
@@ -81,6 +83,7 @@ export function Menu(){
                 {data?.map(foodData => 
                     <Card
                         key={foodData.id}
+                        id={foodData.id}
                         price={foodData.price}
                         title={foodData.title}
                         image={foodData.image}
