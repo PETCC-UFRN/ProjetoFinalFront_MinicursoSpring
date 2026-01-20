@@ -86,7 +86,7 @@ export function Menu(){
       alert("Item atualizado com sucesso!")
     }
     catch (err) {
-      alert("Erro ao atualizar. Verifique se você tem permissão.")
+      alert("Erro ao atualizar.")
     }  
   }
 
@@ -106,6 +106,32 @@ export function Menu(){
     return(
         <div className="container">
             <h1>Cardápio</h1>
+
+            {editingFood && (
+              <div className="edit-modal">
+                <form onSubmit={handleUpdate}>
+                  <h3>Editando: {editingFood.title}</h3>
+                  <input 
+                    type="text" 
+                    value={editingFood.title} 
+                    onChange={e => setEditingFood({...editingFood, title: e.target.value})} 
+                  />
+                  <input 
+                    type="number" 
+                    value={editingFood.price} 
+                    onChange={e => setEditingFood({...editingFood, price: parseFloat(e.target.value)})} 
+                  />
+                  <input 
+                    type="text" 
+                    value={editingFood.image}
+                    onChange={e => setEditingFood({...editingFood, image: e.target.value})}
+                  />
+                  <button type="submit" className="btn_submit">Salvar Alterações</button>
+                  <button type="button" onClick={() => setEditingFood(null)}>Cancelar</button>
+                </form>
+              </div>
+            )}
+
             <div className="card-grid">
                 {data?.map(foodData => 
                     <Card
@@ -115,6 +141,7 @@ export function Menu(){
                         title={foodData.title}
                         image={foodData.image}
                         onDelete={handleDelete}
+                        onEdit={(food) => setEditingFood(food)}
                     />
                 )}
             </div>
