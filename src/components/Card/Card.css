@@ -7,6 +7,7 @@
     border-radius: 8px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding: 0;
+    border: 1px solid black;
 }
 
 .card img {
@@ -26,5 +27,28 @@
 }
 
 .btn_delete:hover {
-  background-color: #d62828;
+  background-color: white;
+  color: #d62828;
+  border: 1px solid black;
+}
+
+.btn_edit {
+  margin-top: 8px;
+  padding: 6px 10px;
+  background-color: #1a6cdf;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn_edit:hover {
+  background-color: white;
+  color: #1a6cdf;
+  border: 1px solid black;
+}
+
+.card_actions {
+  display: flex;
+  gap: 15px;
 }
