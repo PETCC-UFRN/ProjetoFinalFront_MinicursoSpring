@@ -1,0 +1,89 @@
+/* Login.css */
+
+.login-page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFF9EA; /* Fundo solicitado */
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-card {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(33, 26, 9, 0.1); /* Sombra usando o tom escuro */
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-title {
+  color: #211A09; /* Cor principal de texto */
+  margin-bottom: 8px;
+  font-size: 24px;
+}
+
+.login-subtitle {
+  color: #211A09;
+  opacity: 0.7;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-group {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group label {
+  color: #211A09;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.input-group input {
+  padding: 12px;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #FFCB45; /* Realce no foco com o dourado */
+}
+
+.login-button {
+  background-color: #FFCB45; /* Botão principal */
+  color: #211A09; /* Texto do botão no tom escuro */
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
+  margin-top: 10px;
+}
+
+.login-button:hover {
+  background-color: #e6b73e; /* Tom levemente mais escuro para o hover */
+  transform: translateY(-2px);
+}
+
+.login-button:active {
+  transform: translateY(0);
+}
