@@ -21,7 +21,7 @@ export function Header() {
             <Link to="/cadastro">Cadastre</Link>
           </li>
           <li className="nav_item">
-            <Link to="/">Login</Link>
+            <Link to="/login">Login</Link>
           </li>
         </ul>
 
